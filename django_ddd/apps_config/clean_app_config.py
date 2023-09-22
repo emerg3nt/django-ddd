@@ -16,7 +16,7 @@ class CleanAppConfig(AppConfig):
         self.__load_custom_models_module()
 
     def __load_custom_models_module(self) -> None:
-        self.models_module = import_module(f"{self.label}.{self.CUSTOM_MODELS_MODULE}")
+        self.models_module = import_module(f"{self.name}.{self.CUSTOM_MODELS_MODULE}")
 
     def ready(self) -> None:
         self.__load_custom_admin_module(self.CUSTOM_ADMIN_MODULE, register_to=site)
